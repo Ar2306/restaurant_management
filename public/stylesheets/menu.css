@@ -1,0 +1,43 @@
+/* menu.css */
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #ffc107;
+  color: #343a40;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 30px;
+}
+
+.menu-item {
+  border-bottom: 1px solid #e9ecef;
+  padding: 15px 0;
+}
+
+.menu-item h2 {
+  color: #343a40;
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.menu-item p {
+  color: #6c757d;
+  font-size: 1.2em;
+  margin: 5px 0 0 0;
+}
