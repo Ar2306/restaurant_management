@@ -8,7 +8,7 @@ const menu = (req, res) => {
     },
     {
       name: "Burger",
-      description: "Juicy beef burger",
+      description: "Juicy chicken burger",
       price: 8.99,
       image: "burger.jpg",
     },
