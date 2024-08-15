@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .blog-container
+    .blog-header
+      h1 Blog
+      p Welcome to our blog! Explore the latest culinary trends, chef's special recipes, and upcoming events.
+
+    .blog-posts
+      .blog-post
+        .blog-image
+          img(src='path-to-your-image-1.jpg', alt='Culinary Trends')
+        .blog-content
+          h2 Latest Culinary Trends
+          p Stay updated with the latest trends in the culinary world. From innovative recipes to food industry news, we've got you covered.
+          a.btn.btn-primary(href='#') Read more
+
+      .blog-post
+        .blog-image
+          img(src='path-to-your-image-2.jpg', alt='Chef Special Recipes')
+        .blog-content
+          h2 Chef's Special Recipes
+          p Discover exclusive recipes shared by our head chef. Impress your friends and family with these gourmet dishes!
+          a.btn.btn-primary(href='#') Read more
+
+      .blog-post
+        .blog-image
+          img(src='path-to-your-image-3.jpg', alt='Events and Promotions')
+        .blog-content
+          h2 Events and Promotions
+          p Don't miss out on our upcoming events and promotions. Join us for special dinners, cooking classes, and more.
+          a.btn.btn-primary(href='#') Read more
+
+    .load-more-container
+      button.btn-load-more Load More

@@ -1,0 +1,163 @@
+.blog-container {
+  font-family: "Lucida Sans", sans-serif;
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  margin: 0;
+}
+
+.blog-header h1 {
+  font-size: 3em;
+  color: #343a40;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.blog-header p {
+  font-size: 1.3em;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-in-out 0.3s;
+}
+
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.blog-post {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.blog-post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-image img:hover {
+  transform: scale(1.1);
+}
+
+.blog-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.blog-content h2 {
+  font-size: 1.8em;
+  color: #007bff;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.blog-content p {
+  font-size: 1.1em;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease-in-out 0.2s;
+}
+
+.blog-content a.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  animation: fadeInUp 1s ease-in-out 0.4s;
+}
+
+.blog-content a.btn:hover {
+  color: blue;
+  background-color: #fff;
+  border: 1px solid blue;
+  text-decoration: none;
+}
+
+/* Load More Button */
+.load-more-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button.btn-load-more {
+  width: 200px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: blue;
+  transition: 0.3s;
+}
+
+button.btn-load-more:hover {
+  /* background-color: #0056b3; */
+  color: blue;
+  background-color: #fff;
+  border: 1px solid blue;
+  text-decoration: none;
+}
+/* load more no content found need to write js */
+.noContent {
+  color: #000 !important;
+  background-color: transparent !important;
+  pointer-events: none;
+}
+
+.load-more-container.noContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.load-more-container.noContent::before {
+  content: "No more content";
+  font-size: 1.2em;
+  color: #6c757d;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

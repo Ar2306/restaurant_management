@@ -1,15 +1,12 @@
-extends layout
-
-block content
-  .container
-    h2 Our Menu
-    .row
-      each item in menuItems
-        .col-md-4
-          .card.mb-4
-            img.card-img-top(src=`/images/${item.image}`, alt=item.name)
-            .card-body
-              h5.card-title= item.name
-              p.card-text= item.description
-              p.card-text
-                small.text-muted= `$${item.price}`
+.menu-container
+  h2 Our Menu
+  .row
+    each item in menuItems
+      .col-md-4
+        .card.mb-4
+          img.card-img-top(src=`/images/${item.image}`, alt=item.name)
+          .card-body
+            h5.card-title= item.name
+            p.card-text= item.description
+            p.card-text
+              small.text-muted= `$${item.price}`

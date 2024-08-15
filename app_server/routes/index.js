@@ -10,6 +10,5 @@ router.get("/contact", ctrlLocations.contact);
 router.get("/about", ctrlLocations.about);
 router.get("/blog", ctrlLocations.blog);
 
-module.exports = router;
 router.get("/", ctrlMain.index);
 module.exports = router;

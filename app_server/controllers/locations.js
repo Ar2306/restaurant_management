@@ -20,26 +20,29 @@ const menu = (req, res) => {
     },
   ];
 
-  res.render("menu", { title: "Our Menu", menuItems });
+  res.render("menu", { title: "Our Menu", menuItems, page: "menu" });
 };
 
 const home = (req, res) => {
-  res.render("home", { title: "Restaurant Home" });
+  res.render("home", { title: "Restaurant Home", page: "home" });
 };
-const about = (req, res) => {
-  res.render("about", { title: "About" });
-};
-const contact = (req, res) => {
-  res.render("contact", { title: "Contact" });
-};
+
 const blog = (req, res) => {
-  res.render("blog", { title: "Blog" });
+  res.render("blog", { title: "Blog", page: "blog" });
+};
+
+const about = (req, res) => {
+  res.render("about", { title: "About", page: "about" });
+};
+
+const contact = (req, res) => {
+  res.render("contact", { title: "Contact", page: "contact" });
 };
 
 module.exports = {
   menu,
   home,
+  blog,
   about,
   contact,
-  blog,
 };
