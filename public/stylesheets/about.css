@@ -1,0 +1,22 @@
+.container {
+    padding: 40px 20px;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  img {
+    border-radius: 8px;
+    max-width: 100%;
+  }
+  

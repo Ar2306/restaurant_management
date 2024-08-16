@@ -1,15 +1,12 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #111;
-  color: white;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
   margin: 0;
   padding: 0;
 }
-
 header {
-  background-color: transparent;
-  /* font-family: "Tangerine", cursive; */
-  color: #111;
+  background-color: #1a1a1a;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -17,11 +14,18 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+header:hover {
+  background-color: #333333;
 }
 
 header .navbar-brand {
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: bold;
+  color: #e0e0e0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-nav {
@@ -30,26 +34,29 @@ header .navbar-brand {
 }
 
 .nav-link {
-  color: white !important;
+  color: #e0e0e0 !important;
   font-size: 1em;
   text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #ff6700 !important;
+  color: #00bfa5 !important;
+  text-decoration: underline;
 }
 
 .btn-warning {
-  background-color: #ff6700 !important;
+  background-color: #00bfa5 !important;
   border: none;
   padding: 8px 16px;
   font-weight: bold;
   border-radius: 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-warning:hover {
-  background-color: #e65c00 !important;
+  background-color: #009688 !important;
+  transform: translateY(-2px);
 }
 
 .hero-section {
@@ -58,8 +65,8 @@ header .navbar-brand {
   justify-content: space-between;
   height: 100vh;
   padding: 0 80px;
-  background-color: #111;
-  color: white;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
   background-image: url("your-image-path.jpg");
   background-size: cover;
   background-position: center;
@@ -75,12 +82,13 @@ header .navbar-brand {
   margin-bottom: 10px;
   line-height: 1.2;
   text-align: left;
+  color: #00bfa5;
 }
 
 .hero-text p {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #ccc;
+  color: #b3b3b3;
 }
 
 .hero-btns {
@@ -88,6 +96,7 @@ header .navbar-brand {
   text-align: right;
 }
 
+/* General button styling in the hero section */
 .hero-btns a {
   display: inline-block;
   padding: 12px 25px;
@@ -96,33 +105,134 @@ header .navbar-brand {
   font-weight: bold;
   font-size: 1.2em;
   margin-right: 20px;
-  color: white;
+  color: #e0e0e0;
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.hero-btns .btn-primary {
-  background-color: #ff6700;
+.hero-btns .book-btn {
+  border-color: #6c757d;
+  background-color: #333333;
 }
 
-.hero-btns .btn-primary:hover {
-  background-color: #e65c00;
+.hero-btns .book-btn:hover {
+  background-color: #00bfa5;
   transform: translateY(-3px);
 }
 
 .hero-btns .btn-secondary {
-  background-color: #444;
+  background-color: #333333;
 }
 
 .hero-btns .btn-secondary:hover {
-  background-color: #333;
+  background-color: #058171;
   transform: translateY(-3px);
 }
 
-.hero-image {
-  max-width: 40%;
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    text-align: left;
+    padding: 0 40px;
+  }
+
+  .hero-text {
+    max-width: 50%;
+    margin-bottom: 0;
+  }
+
+  .hero-image {
+    max-width: 40%;
+    margin-top: 0;
+  }
+
+  .hero-btns {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .hero-btns a {
+    margin-right: 20px;
+  }
 }
 
-.hero-image img {
-  width: 100%;
+@media (min-width: 1200px) {
+  .hero-text h1 {
+    font-size: 3em;
+  }
+
+  .hero-text p {
+    font-size: 1.2em;
+  }
+
+  .hero-btns a {
+    font-size: 1.2em;
+  }
+}
+.hero-images {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.home-right img {
+  max-width: 200px;
   border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.home-right img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Animation for images to blend them into the background */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.food-img.food-1 {
+  animation: fadeInRight 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.food-img.food-2 {
+  animation: fadeInRight 1.2s ease-in-out forwards;
+  animation-delay: 0.7s;
+}
+
+.food-img.food-3 {
+  animation: fadeInRight 1.4s ease-in-out forwards;
+  animation-delay: 0.9s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-images {
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .hero-images img {
+    max-width: 150px;
+    margin: 10px 0;
+  }
 }
