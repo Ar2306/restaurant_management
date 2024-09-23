@@ -12,3 +12,5 @@ router.get("/blog", ctrlLocations.blog);
 
 router.get("/", ctrlMain.index);
 module.exports = router;
+
+

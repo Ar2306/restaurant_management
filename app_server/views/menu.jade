@@ -1,12 +1,15 @@
 .menu-container
   h2 Our Menu
-  .row
-    each item in menuItems
-      .col-md-4
-        .card.mb-4
-          img.card-img-top(src=`/images/${item.image}`, alt=item.name)
-          .card-body
-            h5.card-title= item.name
-            p.card-text= item.description
-            p.card-text
-              small.text-muted= `$${item.price}`
+  if menuItems.length === 0
+    p No menu items available.
+  else
+    .row
+      each item in menuItems
+        .col-md-4
+          .card.mb-4
+            img.card-img-top(src=`/images/${item.image}`, alt=item.name)
+            .card-body
+              h5.card-title= item.name
+              p.card-text= item.description
+              p.card-text
+                small.text-muted= `$${item.price}`

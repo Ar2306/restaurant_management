@@ -1,6 +1,10 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+// error.jade
+doctype html
+html
+  head
+    title Error
+  body
+    h1 Error Occurred
+    p= message
+    if typeof page !== 'undefined'
+      p Page: #{page}

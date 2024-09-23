@@ -1,7 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const ctrlLocations = require('../controllers/locations'); 
+const db = require("../models/db");
+const ctrlLocations = require("../controllers/locations");
 
-router.get('/', ctrlLocations.menu);
+router.get("/", ctrlLocations.menu);
+db.getdb();
 
 module.exports = router;

@@ -6,8 +6,11 @@ const logger = require("morgan");
 
 const indexRouter = require("./app_server/routes/index");
 const usersRouter = require("./app_server/routes/users");
-
 const app = express();
+const connectDB = require("./app_server/models/db");
+
+// Connect to the database
+connectDB();
 
 // view engine setup
 app.set("views", path.join(__dirname, "app_server", "views"));
@@ -32,7 +35,7 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { page: "error" });
 });
 
 module.exports = app;
