@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Sign In
+    link(rel='stylesheet', href='/stylesheets/signup.css')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  body
+    .container
+      .row.justify-content-center
+        .col-md-6
+          h2.text-center Sign In
+          form(action='/signin', method='POST')
+            .form-group
+              label(for='email') Email
+              input#email.form-control(type='email', placeholder='Enter email', required)
+            .form-group
+              label(for='password') Password
+              input#password.form-control(type='password', placeholder='Enter password', required)
+            button.btn.btn-primary.btn-block(type='submit') Sign In
+          p.text-center
+            | Don't have an account?
+            a(href='/signup') Create an account

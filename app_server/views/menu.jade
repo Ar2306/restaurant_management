@@ -1,15 +1,26 @@
+block styles
+  link(rel='stylesheet', href='/stylesheets/menu.css')
+
+.menu-hero
+  .hero-text
+    h1 Our Special Menu
+    p Best quality and taste to satisfy your cravings!
+
 .menu-container
-  h2 Our Menu
-  if menuItems.length === 0
-    p No menu items available.
+  if menuCategories.length === 0
+    p No menu items available at the moment.
   else
-    .row
-      each item in menuItems
-        .col-md-4
-          .card.mb-4
-            img.card-img-top(src=`/images/${item.image}`, alt=item.name)
-            .card-body
-              h5.card-title= item.name
-              p.card-text= item.description
-              p.card-text
-                small.text-muted= `$${item.price}`
+    each category in menuCategories
+      h2.category-title= category.name
+      .row
+        each item in category.items
+          .col-md-4
+            .card.mb-4
+              img.card-img-top(src=`/images/${item.image}`, alt=item.name)
+              .card-body
+                h5.card-title= item.name
+                p.card-text= item.description
+                .price-review
+                  .price= `$${item.price}`
+                  .reviews
+                    small.text-muted= `(${item.reviews} reviews)`
