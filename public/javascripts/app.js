@@ -65,13 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
   filterMenuByCategory(categoryBoxes[0].getAttribute("data-category"));
 });
 //-----------------book table page javascript
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const form = document.querySelector("form");
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    console.log(data);
-  });
-});
+//   form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     const formData = new FormData(form);
+//     const data = Object.fromEntries(formData);
+//     console.log(data);
+//   });
+// });

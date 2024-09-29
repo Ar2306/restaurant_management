@@ -8,9 +8,9 @@ block content
           .card-header.text-center
             h3 Create Account
           .card-body
-            form(method='POST', action='/signup')
+            form(method='POST', action='/signup-submit')
               .form-group
-                label(for='name') Full Name
+                label(for='username') username
                 input#name.form-control(type='text', name='name', placeholder='Enter your name', required)
               .form-group
                 label(for='email') Email address
