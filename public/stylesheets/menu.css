@@ -1,65 +1,121 @@
-body {
+/* General Page Styles */
+.menu-page {
   background-color: #f7f7f7;
+  color: #333;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  color: #e0e0e0;
-  font-family: "Poppins", sans-serif; /* Sleeker and more modern font */
-  font-size: 16px;
-  line-height: 1.6;
+  padding: 0;
 }
 
+/* Improved Header */
+.menu-page header {
+  background: linear-gradient(135deg, #00bfa5 0%, #00a3e1 100%);
+  color: #070707;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.menu-page header h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* Category Boxes in Header */
+.menu-page .category-header {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu-page .category-boxes {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.menu-page .category-box {
+  padding: 15px 25px;
+  border: 2px solid #00bfa5;
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.category-box:hover {
+  background-color: #00bfa5;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category-box.active {
+  background-color: #00a3e1;
+  color: #fff;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: none; /* Hidden by default */
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin: 6px auto;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Menu Container Styles */
 .menu-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-h2 {
-  font-size: 3rem;
+.category-title {
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 50px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #00bfa5; /* Accent color for headings */
-}
-
-h3 {
-  font-size: 2rem;
   margin-bottom: 30px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  color: #00bfa5;
+  color: #ff6347;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px; /* Added more spacing for a modern feel */
-  justify-content: space-evenly;
-}
-
+/* Card Styles */
 .card {
-  flex: 1 1 calc(33.333% - 25px);
-  max-width: calc(33.333% - 25px);
-  min-width: 250px;
-  border: none;
-  border-radius: 15px; /* Smoother card edges */
+  position: relative;
+  background-color: #fff;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly larger shadow for depth */
-  background-color: #f8f1f1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05); /* Slight zoom on hover for interaction */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .card-img-top {
   width: 100%;
-  height: 180px; /* Increased height for better image focus */
+  height: 200px;
   object-fit: cover;
-  border-bottom: 3px solid #00bfa5; /* Bold accent under image */
 }
 
 .card-body {
@@ -68,17 +124,15 @@ h3 {
 
 .card-title {
   font-size: 1.6rem;
-  font-weight: 700;
-  color: #00bfa5; /* Accent color for card title */
-  margin-bottom: 15px;
-  font-family: "Lora", serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .card-text {
   font-size: 1.1rem;
-  color: #b3b3b3;
-  margin-bottom: 15px;
-  line-height: 1.5; /* Improve text readability */
+  margin-bottom: 10px;
+  color: #666;
 }
 
 .price-review {
@@ -89,99 +143,52 @@ h3 {
 
 .price {
   font-weight: bold;
-  color: #ff6347; /* Accent color for prices */
-  font-size: 1.3rem;
+  color: #ff6347;
 }
 
-.reviews {
-  font-size: 0.95rem;
-  color: #999;
-  text-align: right;
+.add-to-cart {
+  display: block; /* Make button block-level to occupy full width */
+  width: 100%; /* Full width */
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #00bfa5; /* Your primary color */
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center; /* Center text */
+  margin-top: 10px; /* Space above button */
 }
 
-.small.text-muted {
-  font-size: 0.9rem;
-  color: #999;
+.add-to-cart:hover {
+  background-color: #ff6347; /* Hover color */
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .category-header {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .category-boxes {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .category-box {
+    width: 100%;
+  }
+
+  .menu-container {
+    padding: 20px 10px;
+  }
+
   .card {
-    flex: 1 1 100%;
     max-width: 100%;
   }
-}
-
-@media (max-width: 992px) {
-  .card {
-    flex: 1 1 calc(50% - 25px);
-  }
-}
-
-.menu-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff; /* Matches the body background */
-  text-align: center;
-  padding: 50px 20px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.menu-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(
-    247,
-    243,
-    243,
-    0.5
-  ); /* Dark overlay to make text stand out */
-  z-index: 1;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-text h1 {
-  font-size: 3.5rem; /* Larger heading size for hero */
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  color: #00bfa5; /* Accent color for the heading */
-  margin-bottom: 20px;
-  /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); Subtle text shadow for emphasis */
-}
-
-.hero-text p {
-  font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
-  color: #010101;
-  margin-bottom: 30px;
-  line-height: 1.5;
-  max-width: 600px; /* Limit text width */
-  /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); Text shadow for readability */
-}
-
-.hero-text .btn {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: #00bfa5;
-  color: #0d0d0d;
-  border: none;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.hero-text .btn:hover {
-  background-color: #ff6347; /* Button hover effect to match the price color */
 }

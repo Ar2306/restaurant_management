@@ -1,0 +1,11 @@
+link(rel='stylesheet', href='/stylesheets/booking-confirmation.css')
+block content
+  h1 Booking Confirmed
+  p Thank you, #{bookingDetails.name}. Your table has been booked!
+  p Details:
+    ul
+      li Email: #{bookingDetails.email}
+      li Date: #{bookingDetails.date.toLocaleDateString()}
+      li Time: #{bookingDetails.time}
+      li Number of Guests: #{bookingDetails.guests}
+  a(href="/") Back to Home

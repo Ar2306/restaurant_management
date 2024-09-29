@@ -91,9 +91,12 @@ header .navbar-brand {
 }
 
 .hero-text p {
-  font-size: 1.2em;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  color: #fdfcfc;
   margin-bottom: 30px;
-  color: #b3b3b3;
+  line-height: 1.5;
+  max-width: 600px;
 }
 
 .hero-btns {
@@ -114,7 +117,7 @@ header .navbar-brand {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.hero-btns .book-btn {
+/* .hero-btns .book-btn {
   border-color: #6c757d;
   background-color: #333333;
 }
@@ -131,6 +134,21 @@ header .navbar-brand {
 .hero-btns .btn-secondary:hover {
   background-color: #058171;
   transform: translateY(-3px);
+} */
+.hero-text .btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #00bfa5;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-text .btn:hover {
+  background-color: #ff6347;
 }
 
 /* Responsive adjustments */
@@ -183,5 +201,43 @@ header .navbar-brand {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #00bfa5; /* Your accent color */
+  margin: 4px 0;
+}
+
+.menu-nav {
+  display: none; /* Initially hidden */
+}
+
+.menu-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-nav ul li {
+  margin: 10px 0;
+}
+
+.menu-nav ul li a {
+  text-decoration: none;
+  color: #00bfa5; /* Your accent color */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
 }

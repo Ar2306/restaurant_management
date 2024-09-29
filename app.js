@@ -3,11 +3,10 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const mongoose = require("mongoose");
 
 // Import routes
 const indexRouter = require("./app_server/routes/index");
-const signinRouter = require("./app_server/routes/signin"); // Add sign-in route
-const signupRouter = require("./app_server/routes/signup"); // Add sign-up route
 
 // Import the database connection
 const connectDB = require("./app_server/models/db");
@@ -30,8 +29,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Define routes
 app.use("/", indexRouter);
-app.use("/signin", signinRouter); // Register the sign-in route
-app.use("/signup", signupRouter); // Register the sign-up route
 
 // Error handling for 404
 app.use((req, res, next) => {

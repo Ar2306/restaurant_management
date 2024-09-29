@@ -1,17 +1,26 @@
-block styles
-  link(rel='stylesheet', href='/stylesheets/menu.css')
+extends layout
 
-.menu-hero
-  .hero-text
-    h1 Our Special Menu
-    p Best quality and taste to satisfy your cravings!
+block content
+  .menu-page
+    header
+      h1 Our Menu
+      .category-header
+        .category-boxes
+          each category in menuCategories
+            .category-box(data-category=category.name)= category.name
+      .hamburger
+        span
+        span
+        span
+      nav.menu-nav
+        ul
+          each category in menuCategories
+            li
+              a(href=`#${category.name}`) #{category.name}
 
-.menu-container
-  if menuCategories.length === 0
-    p No menu items available at the moment.
-  else
+  .menu-container
     each category in menuCategories
-      h2.category-title= category.name
+      h2.category-title(id=category.name)= category.name
       .row
         each item in category.items
           .col-md-4
@@ -21,6 +30,24 @@ block styles
                 h5.card-title= item.name
                 p.card-text= item.description
                 .price-review
-                  .price= `$${item.price}`
-                  .reviews
-                    small.text-muted= `(${item.reviews} reviews)`
+                  .price Rs #{item.price}
+                  
+                // Display reviews for each menu item
+                if item.reviews && item.reviews.length > 0
+                  .reviews-section
+                    h6 Reviews:
+                    ul.reviews-list
+                      each review in item.reviews
+                        li
+                          strong #{review.user} rated: #{review.rating} / 5
+                          if review.comment
+                            p.comment= review.comment
+                          small.date= new Date(review.date).toLocaleDateString()
+                else
+                  p No reviews available.
+
+              // Add to Cart button
+              button.add-to-cart(type='button', data-id=item._id) Add to Cart
+
+  footer
+    p © 2024 Restro

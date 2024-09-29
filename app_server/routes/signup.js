@@ -1,31 +1,46 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/users"); // Import the User model
+const bcrypt = require("bcryptjs");
+const User = require("../models/user");
+const mongoose = require("mongoose");
 
-// Sign-up route
-router.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+router.post("/signup", async function (req, res) {
+  const { name, email, password } = req.body;
+
+  // Basic validation
+  //   if (!name || !email || !password) {
+  //     return res.status(400).json({ message: "All fields are required" });
+  //   }
 
   try {
-    // Check if the email already exists
-    let user = await User.findOne({ email });
+    // Check if the user already exists
+    await mongoose.connect(
+      "mongodb+srv://anand:Ar2306@cluster0.cent8.mongodb.net/Resturant"
+    );
+    let user = await User.findOne({ email: email });
     if (user) {
-      return res.status(400).send("Email already exists");
+      return res.status(400).json({ message: "User already exists" });
     }
 
-    // Create a new user instance and save to the database
+    // Hash the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create a new user instance
     user = new User({
-      username,
+      name,
       email,
-      password, // In real applications, hash the password before saving using bcrypt
+      password: hashedPassword,
     });
 
+    // Save the user to the database
     await user.save();
 
-    // Redirect to sign-in page after successful registration
+    // Redirect to the sign-in page
     res.redirect("/signin");
-  } catch (error) {
-    res.status(500).send("Server error");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

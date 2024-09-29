@@ -10,14 +10,15 @@ html
     link(rel='stylesheet', href='/stylesheets/blog.css')
     link(rel='stylesheet', href='/stylesheets/about.css')
     link(rel='stylesheet', href='/stylesheets/contact.css')
-    //- linl(rel='stylesheet', href='/stylesheets/signin.css')
+    link(rel="stylesheet", href="/stylesheets/menu.css")
+    link(rel="stylesheet", href="/stylesheets/book-table.css")
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
 
   body
     if page == 'home'
       header
         nav.navbar.navbar-expand-lg.navbar-dark
-          a.navbar-brand(href='/') RESTRO
+          a.navbar-brand(href='/') Restro
           
           // Toggler button for small screens
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
@@ -46,3 +47,4 @@ html
     script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
     script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js')
     script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    script(src='/javascripts/app.js')
