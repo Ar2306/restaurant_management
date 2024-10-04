@@ -1,32 +1,40 @@
+// routes/signin.js
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const User = require("../models/user"); // Import the User model
+const bcrypt = require("bcrypt");
+const User = require("../models/user"); // Assuming you have a User model for sign-in
 
-// Sign-in route
-router.post("/signin", async (req, res) => {
+// Render the sign-in page
+router.get("/", (req, res) => {
+  res.render("signin", { title: "Sign In" });
+});
+
+// Handle sign-in form submission
+router.post("/", async (req, res) => {
   const { email, password } = req.body;
 
+  // Find the user by email
   try {
-    // Find the user by email
     const user = await User.findOne({ email });
-
-    // If user doesn't exist
     if (!user) {
-      return res.status(400).send("Invalid email or password");
+      return res
+        .status(400)
+        .render("signin", { error: "Invalid email or password." });
     }
 
-    // Compare the password using bcrypt
+    // Compare the provided password with the hashed password
     const isMatch = await bcrypt.compare(password, user.password);
-
     if (!isMatch) {
-      return res.status(400).send("Invalid email or password");
+      return res
+        .status(400)
+        .render("signin", { error: "Invalid email or password." });
     }
 
-    // If email and password match, sign in the user
-    res.redirect("/menu"); // Redirect to the menu or home page after successful sign-in
+    // Redirect to home page after successful login
+    res.redirect("/");
   } catch (error) {
-    res.status(500).send("Server error");
+    console.error("Error during sign-in:", error);
+    res.status(500).send("Internal server error.");
   }
 });
 

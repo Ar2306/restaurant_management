@@ -1,8 +1,36 @@
-extends layout
-
+//- extends layout
+link(rel="stylesheet", href="/stylesheets/about.css")
 block content
-  .container
-    h1 About Us
-    p Welcome to our restaurant, where passion meets flavor! Our culinary journey began with a simple idea: to create a place where food lovers can enjoy the finest meals in an inviting and warm atmosphere.
-    p We take pride in sourcing the freshest ingredients, crafting every dish with care, and delivering an unforgettable dining experience. Whether you are here for a casual meal, a special occasion, or simply to satisfy your cravings, we promise to make every visit memorable.
-    p Come and explore our rich menu, meet our talented chefs, and discover why we are the talk of the town. Your satisfaction is our top priority, and we strive to exceed your expectations with every plate served.
+  .about-container
+    .about-hero-section
+      h1 About Us
+      p Welcome to our restaurant, where passion meets flavor! Our culinary journey began with a simple idea: to create a haven for food lovers to savor the finest meals in an inviting and warm atmosphere.
+    
+    .mission-section
+      h2 Our Mission
+      p We take pride in sourcing the freshest ingredients and crafting every dish with care. Our mission is to deliver an unforgettable dining experience, whether you are here for a casual meal, a special occasion, or simply to satisfy your cravings.
+    
+    .chefs-section
+      h2 Meet Our Chefs
+      p Our talented chefs bring creativity and expertise to every plate, blending traditional techniques with modern flavors to create culinary masterpieces. Come and explore our rich menu and discover why we are the talk of the town.
+      .chefs-grid
+        .chef-card
+          img(src="/images/chef.jpg", alt="Chef Alex")
+          h3 Chef Alex
+          p With over 15 years of experience, Chef Alex is passionate about crafting dishes that delight the senses.
+        .chef-card
+          img(src="/images/lady_chef.jpg", alt="Chef Maria")
+          h3 Chef Maria
+          p Chef Maria specializes in desserts, turning sweet dreams into reality with her exquisite creations.
+
+    .testimonials-section
+      h2 What Our Customers Say
+      .testimonial
+        p "The food is outstanding! Every dish is a work of art." - Sarah
+      .testimonial
+        p "An amazing dining experience! The atmosphere is perfect." - John
+
+    .call-to-action
+      h2 Join Us Today!
+      p Your satisfaction is our top priority, and we strive to exceed your expectations with every plate served. We invite you to come and experience the warmth of our hospitality.
+      a.btn.btn-primary(href="/menu") View Our Menu

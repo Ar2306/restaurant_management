@@ -1,93 +1,92 @@
-/* General Page Styles */
-.menu-page {
-  background-color: #f7f7f7;
-  color: #333;
-  font-family: "Poppins", sans-serif;
+/* Resetting default styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Improved Header */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #1e1e1e; /* Dark background for modern look */
+  color: #f1f1f1; /* Light text for contrast */
+  line-height: 1.6;
+}
+
+/* Header Styles */
 .menu-page header {
-  background: linear-gradient(135deg, #00bfa5 0%, #00a3e1 100%);
-  color: #070707;
-  padding: 50px 20px;
+  background-color: #333;
+  color: #ef6b06;
   text-align: center;
+  padding: 40px 0;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .menu-page header h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: #fff;
-  margin-bottom: 30px;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
-/* Category Boxes in Header */
-.menu-page .category-header {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 15px 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.category-header {
+  margin-top: 30px;
+}
+
+.category-boxes {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.menu-page .category-boxes {
-  display: flex;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-.menu-page .category-box {
-  padding: 15px 25px;
+.category-box {
+  padding: 10px 30px;
   border: 2px solid #00bfa5;
-  border-radius: 25px;
-  background-color: #f9f9f9;
-  text-align: center;
+  border-radius: 30px;
+  background-color: #333;
+  color: #00bfa5;
+  font-size: 1.4rem;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease,
-    box-shadow 0.3s ease;
-  font-weight: bold;
-  font-size: 1.2rem;
+  transition: all 0.4s ease;
 }
 
 .category-box:hover {
   background-color: #00bfa5;
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Navigation Styles */
+nav.menu-nav ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.category-box.active {
-  background-color: #00a3e1;
+nav.menu-nav ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+nav.menu-nav ul li a {
+  color: #00bfa5;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav.menu-nav ul li a:hover {
+  background-color: #00bfa5;
   color: #fff;
-}
-
-/* Hamburger Menu */
-.hamburger {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  display: none; /* Hidden by default */
-}
-
-.hamburger span {
-  display: block;
-  width: 30px;
-  height: 4px;
-  margin: 6px auto;
-  background-color: #fff;
-  transition: all 0.3s ease;
 }
 
 /* Menu Container Styles */
 .menu-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 .category-title {
@@ -95,100 +94,141 @@
   text-align: center;
   margin-bottom: 30px;
   color: #ff6347;
+  border-bottom: 2px solid #ff6347;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 /* Card Styles */
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 .card {
-  position: relative;
-  background-color: #fff;
+  background-color: #2b2b2b;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  width: 300px;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
 }
 
 .card-img-top {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 4px solid #ff6347;
 }
 
 .card-body {
   padding: 20px;
+  color: #fff;
 }
 
 .card-title {
   font-size: 1.6rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #ff6347;
 }
 
 .card-text {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #666;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #020202;
 }
 
 .price-review {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .price {
+  font-size: 1.4rem;
   font-weight: bold;
   color: #ff6347;
 }
 
+/* Reviews Section */
+.reviews-section {
+  margin-top: 15px;
+}
+
+.reviews-section h6 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ff6347;
+}
+
+.reviews-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reviews-list li {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Add to Cart Button */
 .add-to-cart {
-  display: block; /* Make button block-level to occupy full width */
-  width: 100%; /* Full width */
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #00bfa5; /* Your primary color */
+  background-color: #00bfa5;
   color: #fff;
+  padding: 10px 20px;
   border: none;
   border-radius: 30px;
+  font-size: 1.1rem;
   cursor: pointer;
-  text-align: center; /* Center text */
-  margin-top: 10px; /* Space above button */
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .add-to-cart:hover {
-  background-color: #ff6347; /* Hover color */
+  background-color: #ff6347;
 }
 
-/* Responsive Adjustments */
+/* Footer */
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* Show hamburger on mobile */
+    display: block; /* Show hamburger for smaller screens */
   }
 
-  .category-header {
-    flex-direction: column;
-    margin-top: 0;
-  }
-
-  .category-boxes {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .category-box {
-    width: 100%;
+  nav.menu-nav ul {
+    display: none; /* Hide menu on smaller screens */
   }
 
   .menu-container {
-    padding: 20px 10px;
+    padding: 0 10px;
   }
 
   .card {
-    max-width: 100%;
+    width: 100%; /* Full width on mobile */
   }
 }

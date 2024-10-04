@@ -8,11 +8,12 @@ html
     // CSS Stylesheets
     link(rel='stylesheet', href='/stylesheets/home.css')
     link(rel='stylesheet', href='/stylesheets/blog.css')
-    link(rel='stylesheet', href='/stylesheets/about.css')
-    link(rel='stylesheet', href='/stylesheets/contact.css')
     link(rel="stylesheet", href="/stylesheets/menu.css")
     link(rel="stylesheet", href="/stylesheets/book-table.css")
+    link(rel="stylesheet", href="/stylesheets/cart.css")
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
+
 
   body
     if page == 'home'
@@ -39,7 +40,13 @@ html
                 a.nav-link(href='/contact') Contact
               li.nav-item
                 a.nav-link(href='/signin') Sign In
-                
+
+              // Cart Icon with Badge
+              li.nav-item
+                a.nav-link(href='/cart')
+                  i.fa.fa-shopping-cart
+                  // Dynamic item count
+                  span#cart-count.badge.badge-warning 5
 
     block content
 

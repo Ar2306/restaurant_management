@@ -1,44 +1,143 @@
-/* signup.css */
-
-/* General form styling */
-.container {
-  margin-top: 50px;
+/* Apply full height and remove any potential margin/padding from html and body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
 }
 
-h2 {
+/* Scope all styles to the .signup-page */
+.signup-page {
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.8),
+      rgba(34, 49, 63, 0.7)
+    ),
+    url("/images/signup.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Container styling */
+.signup-page .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Form Box Styling */
+.signup-page .form-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px); /* Enhanced Glassmorphism effect */
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+
+/* Headings */
+.signup-page h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Form Group Styling */
+.signup-page .form-group {
   margin-bottom: 20px;
-  font-size: 28px;
-  font-weight: 700;
-  color: #333;
+  text-align: left;
 }
 
-.form-group label {
-  font-size: 16px;
-  color: #555;
+.signup-page label {
+  font-size: 0.95rem;
+  color: #f1f1f1;
+  margin-bottom: 8px;
+  display: block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-input.form-control {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
+/* Input Styling */
+.signup-page input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-button.btn {
-  background-color: #ff6600;
-  border-color: #ff6600;
-  font-size: 16px;
-  font-weight: 600;
+.signup-page input::placeholder {
+  color: #ddd;
+  font-size: 0.9rem;
 }
 
-/* Create Account link styling */
-p.text-center a {
-  color: #0066cc;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 16px;
+.signup-page input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  outline: none;
 }
 
-p.text-center a:hover {
-  color: #004080;
+/* Button Styling */
+.signup-page button.btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-page button.btn:hover {
+  background: linear-gradient(135deg, #ff4757, #ff6b6b);
+  box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
+}
+
+/* Link Styling */
+.signup-page p.text-center {
+  margin-top: 20px;
+}
+
+.signup-page a {
+  color: #ff6b6b;
+  font-size: 0.9rem;
   text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.signup-page a:hover {
+  color: #ff4757;
+  text-decoration: none;
+}
+
+/* Error Message Styling */
+.signup-page .error {
+  color: #ff4757;
+  font-size: 0.85rem;
+  margin-top: 5px;
 }

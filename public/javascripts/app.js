@@ -64,14 +64,41 @@ document.addEventListener("DOMContentLoaded", function () {
   activateCategoryBox(categoryBoxes[0]);
   filterMenuByCategory(categoryBoxes[0].getAttribute("data-category"));
 });
-//-----------------book table page javascript
-// document.addEventListener("DOMContentLoaded", () => {
-//   const form = document.querySelector("form");
+// Sample code to update the cart count dynamically
+document.addEventListener("DOMContentLoaded", function () {
+  let cartCount = 0; // Initialize cart count to 0
+  const cartCountElement = document.getElementById("cart-count");
 
-//   form.addEventListener("submit", (event) => {
-//     event.preventDefault();
-//     const formData = new FormData(form);
-//     const data = Object.fromEntries(formData);
-//     console.log(data);
-//   });
-// });
+  // Example function to add an item to the cart
+  function addToCart() {
+    cartCount++;
+    cartCountElement.textContent = cartCount;
+  }
+
+  // Attach this function to any add-to-cart buttons in your menu page
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const cartButtons = document.querySelectorAll(".add-to-cart");
+
+  cartButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const itemId = event.target.getAttribute("data-id");
+      const quantity = 1; // Default quantity or allow users to choose
+
+      fetch("/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ itemId, quantity }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert(data.message); // Show confirmation message
+        })
+        .catch((error) => {
+          console.error("Error adding item to cart:", error);
+        });
+    });
+  });
+});

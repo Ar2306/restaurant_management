@@ -85,8 +85,20 @@ const bookTableSubmit = async (req, res) => {
 };
 
 // Render the booking confirmation page
+// const bookingConfirmation = (req, res) => {
+//   res.render("booking-confirmation", { title: "Booking Confirmed" });
+// };
 const bookingConfirmation = (req, res) => {
-  res.render("booking-confirmation", { title: "Booking Confirmed" });
+  const bookingDetails = req.session.bookingDetails;
+
+  if (!bookingDetails) {
+    return res.redirect("/book-table");
+  }
+
+  res.render("booking-confirmation", {
+    title: "Booking Confirmed",
+    bookingDetails,
+  });
 };
 
 // Export the controller functions

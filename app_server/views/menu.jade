@@ -31,7 +31,7 @@ block content
                 p.card-text= item.description
                 .price-review
                   .price Rs #{item.price}
-                  
+
                 // Display reviews for each menu item
                 if item.reviews && item.reviews.length > 0
                   .reviews-section
@@ -46,8 +46,10 @@ block content
                 else
                   p No reviews available.
 
-              // Add to Cart button
-              button.add-to-cart(type='button', data-id=item._id) Add to Cart
+                
+               form.add-to-cart-form(action="/api/cart/add", method="POST")
+                 input(type="hidden", name="itemId", value=item._id)  // Sends item ID
+                 button(type="submit") Add to Cart
 
   footer
     p © 2024 Restro
