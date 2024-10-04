@@ -4,11 +4,11 @@ block content
     .container
       .form-box
         h2 Sign Up
-
-        form(action="/signup", method="POST")
+ 
+        form(id="Form")
           .form-group
             label(for="username") Full Name
-            input.form-control(type="text", name="name", placeholder="Your Full Name", required)
+            input.form-control(type="text", name="username", placeholder="Your Full Name", required)
 
           .form-group
             label(for="email") Email
@@ -22,3 +22,4 @@ block content
 
         p.text-center Already have an account? 
           a(href="/signin") Sign In
+        script(src="/javascripts/signup.js") 

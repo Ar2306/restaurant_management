@@ -100,7 +100,6 @@ const bookingConfirmation = (req, res) => {
     bookingDetails,
   });
 };
-
 // Export the controller functions
 module.exports = {
   menu,

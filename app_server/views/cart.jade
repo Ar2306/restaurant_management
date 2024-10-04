@@ -1,7 +1,7 @@
-link(rel="stylesheet", href="/stylesheets/cart.css")
+extends layout
 block content
   h1 Your Cart
-
+ 
   if !cart || cart.length === 0
     p Your cart is empty.
   else
