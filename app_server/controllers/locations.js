@@ -1,11 +1,10 @@
-const MenuItem = require("../models/menu_items");
-const Booking = require("../models/booking"); // Import the Booking model
+ const {getMenu, saveBooking} = require('../models/db')
 
 // Controller to display the menu
 const menu = async (req, res) => {
   try {
     // Fetch all menu items from the database
-    const menuItems = await MenuItem.find();
+    const menuItems = await getMenu();
 
     // Organize menu items into categories
     const menuCategories = [
@@ -71,11 +70,9 @@ const bookTableSubmit = async (req, res) => {
     return res.status(400).send("Missing required fields.");
   }
 
-  const newBooking = new Booking({ name, email, date, time, guests });
-
   try {
     // Save the booking and redirect to the confirmation page
-    await newBooking.save();
+    await saveBooking({ name, email, date, time, guests });
     res.redirect("/booking-confirmation");
   } catch (err) {
     // Log error and send a server error response
@@ -100,7 +97,6 @@ const bookingConfirmation = (req, res) => {
     bookingDetails,
   });
 };
-
 // Export the controller functions
 module.exports = {
   menu,

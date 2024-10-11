@@ -1,24 +1,24 @@
-link(rel="stylesheet", href="/stylesheets/cart.css")
-block content
-  h1 Your Cart
-
-  if !cart || cart.length === 0
-    p Your cart is empty.
-  else
-    table
-      tr
-        th Item
-        th Quantity
-        th Price
-        th Subtotal
-      each item in cart
+extends layout
+  block content
+    h1 Your Cart
+ 
+    if !cart || cart.length === 0
+      p Your cart is empty.
+    else
+      table
         tr
-          td= item.name
-          td= item.quantity
-          td Rs #{item.price}
-          td Rs #{item.price * item.quantity}
+          th Item
+          th Quantity
+          th Price
+          th Subtotal
+        each item in cart
+          tr
+            td= item.name
+            td= item.quantity
+            td Rs #{item.price}
+            td Rs #{item.price * item.quantity}
 
-    h3 Total: Rs #{cart.reduce((total, item) => total + (item.price * item.quantity), 0)}
+      h3 Total: Rs #{cart.reduce((total, item) => total + (item.price * item.quantity), 0)}
 
-    form(action="/checkout", method="POST")
-      button(type="submit") Proceed to Checkout
+      form(action="/checkout", method="POST")
+        button(type="submit") Proceed to Checkout

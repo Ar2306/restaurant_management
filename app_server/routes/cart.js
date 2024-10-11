@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const MenuItem = require("../models/menu_items"); // Assuming you have a MenuItem model
+const {getMenuId} = require("../models/db")
 
 // POST /api/cart
 router.post("/add", async (req, res) => {
@@ -8,7 +8,7 @@ router.post("/add", async (req, res) => {
 
   try {
     // Find the menu item in the database
-    const item = await MenuItem.findById(itemId);
+    const item = await getMenuId(itemId);
     if (!item) {
       return res
         .status(404)

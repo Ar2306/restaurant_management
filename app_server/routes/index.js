@@ -4,6 +4,7 @@ const ctrlLocations = require("../controllers/locations");
 const bookingsController = require("../controllers/bookings");
 
 // General pages
+router.get("/cart", (req, res)=>{res.render("cart", { title: "Cart" })})
 router.get("/", ctrlLocations.home);
 router.get("/menu", ctrlLocations.menu);
 router.get("/contact", ctrlLocations.contact);

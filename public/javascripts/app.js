@@ -10,24 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
         : "none";
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const cart = []; // Initialize the cart as an empty array
-
-  // Add event listeners to all "Add to Cart" buttons
-  document.querySelectorAll(".add-to-cart").forEach((button) => {
-    button.addEventListener("click", () => {
-      const itemId = button.getAttribute("data-id");
-      addToCart(itemId);
+document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+  button.addEventListener("click", async function () {
+    const itemId = this.getAttribute("data-item-id");
+    const response = await fetch("/api/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ itemId, quantity: 1 }), // Assuming quantity is 1 by default
     });
-  });
 
-  function addToCart(itemId) {
-    // Add logic to add the item to the cart
-    // For simplicity, just pushing the ID to the cart array
-    cart.push(itemId);
-    alert(`Item with ID ${itemId} added to cart!`);
-    console.log(cart); // For demonstration purposes
-  }
+    const result = await response.json();
+    if (result.success) {
+      alert("Item added to cart!");
+    } else {
+      alert("Failed to add item to cart.");
+    }
+  });
 });
 document.addEventListener("DOMContentLoaded", function () {
   const categoryBoxes = document.querySelectorAll(".category-box");
