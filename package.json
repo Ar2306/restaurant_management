@@ -19,5 +19,11 @@
     "mongoose": "^8.6.3",
     "morgan": "~1.9.1",
     "teamproject": "file:"
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+>>>>>>> 87c5ca6d08abbaa4672dca3de586d61a558e9b84
   }
 }

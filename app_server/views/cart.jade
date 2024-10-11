@@ -1,4 +1,5 @@
 extends layout
+<<<<<<< HEAD
   block content
     h1 Your Cart
  
@@ -6,6 +7,21 @@ extends layout
       p Your cart is empty.
     else
       table
+=======
+block content
+  h1 Your Cart
+ 
+  if !cart || cart.length === 0
+    p Your cart is empty.
+  else
+    table
+      tr
+        th Item
+        th Quantity
+        th Price
+        th Subtotal
+      each item in cart
+>>>>>>> 87c5ca6d08abbaa4672dca3de586d61a558e9b84
         tr
           th Item
           th Quantity

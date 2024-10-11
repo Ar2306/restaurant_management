@@ -1,8 +1,11 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const User = require("../models/user");
+<<<<<<< HEAD
 const MenuItem = require("../models/menu_items");
 const Booking = require("../models/booking");
+=======
+>>>>>>> 87c5ca6d08abbaa4672dca3de586d61a558e9b84
 
 const URL = process.env.MONGO;
 
@@ -31,6 +34,7 @@ const findUser = async (email) => {
 };
 
 
+<<<<<<< HEAD
 const getMenu = async () => {
   try {
     await mongoose.connect(URL);
@@ -72,3 +76,7 @@ const saveBooking = async (data) => {
 
 
 module.exports = {createUser, findUser, getMenu, saveBooking, getMenuId};
+=======
+
+module.exports = {createUser, findUser};
+>>>>>>> 87c5ca6d08abbaa4672dca3de586d61a558e9b84

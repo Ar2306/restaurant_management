@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const {getMenuId} = require("../models/db")
 
+router.get("/cart", (req, res)=>{res.render("cart", { title: "Cart" })})
+
 // POST /api/cart
 router.post("/add", async (req, res) => {
   const { itemId, quantity } = req.body;
