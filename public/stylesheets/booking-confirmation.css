@@ -1,58 +1,111 @@
+/* Base styles */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f8f9fa; /* Light background color */
+  font-family: Arial, sans-serif; /* Consistent font across pages */
+  background-color: #0d0d0d; /* Dark background for consistency */
+  color: #e0e0e0; /* Light text for contrast */
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  color: #28a745; /* Green color for success */
-  text-align: center;
-  margin-top: 50px;
-  font-size: 2.5em;
-}
-
-p {
-  font-size: 1.2em;
-  color: #343a40; /* Dark grey for text */
-  text-align: center;
-  margin: 20px 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 20px auto;
-  text-align: center;
-}
-
-ul li {
-  font-size: 1.2em;
-  color: #495057; /* Medium grey for list items */
-  margin-bottom: 10px;
-}
-
-a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue button */
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.1em;
-  margin-top: 30px;
-  transition: background-color 0.3s;
-}
-
-a:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Center the content */
+/* Main container styles */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; /* Full height for centering */
+  padding: 40px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a,
+    #333333
+  ); /* Gradient background for depth */
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5); /* Subtle shadow for elegance */
+}
+
+/* Title styling */
+h1 {
+  color: #00bfa5; /* Accent color for title */
+  text-align: center;
+  margin-top: 20px;
+  font-size: 3em; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold title for prominence */
+  text-transform: uppercase; /* Uppercase for sophistication */
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1.4em; /* Increased size for readability */
+  color: #fdfcfc; /* Soft white for text */
+  text-align: center;
+  margin: 20px 0; /* Spacing above and below */
+  line-height: 1.5; /* Improved line spacing */
+}
+
+/* List styling */
+ul {
+  list-style-type: none; /* Remove default list style */
+  padding: 0;
+  margin: 20px auto; /* Center the list */
+  width: 100%; /* Full width for better spacing */
+}
+
+/* List item styling */
+ul li {
+  font-size: 1.3em; /* Consistent font size for list items */
+  color: #00bfa5; /* Accent color for items */
+  margin-bottom: 15px; /* Spacing between items */
+  padding: 10px 15px; /* Padding for touchable areas */
+  background: rgba(0, 191, 165, 0.1); /* Light background for list items */
+  border-left: 5px solid #00bfa5; /* Stylish left border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background 0.3s; /* Smooth hover transition */
+}
+
+/* Hover effect for list items */
+ul li:hover {
+  background: rgba(0, 191, 165, 0.2); /* Darker on hover */
+}
+
+/* Button link styling */
+a {
+  display: inline-block; /* Inline block for easy centering */
+  padding: 12px 25px; /* Increased padding for comfort */
+  background-color: #007bff; /* Blue button */
+  color: white;
+  text-decoration: none;
+  border-radius: 50px; /* Rounded button edges */
+  font-size: 1.2em; /* Button text size */
+  margin-top: 30px; /* Spacing above button */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Button shadow for depth */
+}
+
+/* Center the button within the container */
+.container a {
+  margin: 30px auto; /* Center the button with auto margins */
+}
+
+/* Button hover effect */
+a:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2em; /* Smaller title for mobile */
+  }
+
+  p,
+  ul li {
+    font-size: 1em; /* Smaller text for mobile */
+  }
+
+  a {
+    font-size: 1em; /* Smaller button for mobile */
+    padding: 10px 20px; /* Adjust padding for mobile */
+  }
 }

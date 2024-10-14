@@ -1,23 +1,71 @@
-exports.bookTable = (req, res) => {
-  console.log("Received booking request:", req.body); // Log the request body
+const { saveBooking, findBookingById } = require("../models/db");
 
+// Render the book table form
+const bookTableForm = (req, res) => {
+  res.render("book-table", { title: "Book a Table" });
+};
+
+// Handle form submission for booking
+const bookTableSubmit = async (req, res) => {
   const { name, email, date, time, guests } = req.body;
 
-  // Check for missing required fields
+  // Simple validation to check for missing fields
   if (!name || !email || !date || !time || !guests) {
-    console.error("Missing required fields:", req.body); // Log missing fields
-    return res.status(400).send("Missing required fields.");
+    return res.status(400).send("All fields are required.");
   }
 
-  const newBooking = new Booking({ name, email, date, time, guests });
+  try {
+    // Save the booking data to the database
+    const booking = await saveBooking({ name, email, date, time, guests });
 
-  newBooking
-    .save()
-    .then(() => {
-      res.redirect("/booking-confirmation");
-    })
-    .catch((err) => {
-      console.error("Error saving booking:", err);
-      res.status(500).send("Error saving booking.");
+    if (booking === -1) {
+      return res.status(500).send("Error saving your booking.");
+    }
+
+    // Store booking details in the session for the confirmation page
+    req.session.bookingId = booking._id;
+
+    // Redirect to the confirmation page with booking ID as query param
+    res.redirect(`/booking-confirmation?id=${booking._id}`);
+  } catch (err) {
+    console.error("Error saving booking:", err);
+    res.status(500).send("Error saving your booking.");
+  }
+};
+
+// Render the booking confirmation page
+const bookingConfirmation = async (req, res) => {
+  const { bookingId } = req.session;
+  const queryBookingId = req.query.id;
+
+  // If no booking ID found in session or query, redirect to booking page
+  if (!bookingId && !queryBookingId) {
+    return res.redirect("/book-table");
+  }
+
+  try {
+    // Retrieve booking details, either from session or query param
+    const bookingDetails = await findBookingById(bookingId || queryBookingId);
+
+    if (!bookingDetails) {
+      return res.status(404).send("Booking not found.");
+    }
+
+    // Render confirmation page with the booking details
+    res.render("booking-confirmation", {
+      title: "Booking Confirmed",
+      bookingDetails,
     });
+  } catch (err) {
+    console.error("Error fetching booking details:", err);
+    res.status(500).send("Error loading your booking confirmation.");
+  }
+};
+
+// Render the booking confirmation page
+
+module.exports = {
+  bookTableForm,
+  bookTableSubmit,
+  bookingConfirmation,
 };

@@ -58,11 +58,29 @@ const saveBooking = async (data) => {
   try {
     await mongoose.connect(URL);
     console.log("MongoDB connected successfully!");
-    await Booking.insertMany([data]);
+    const savedBooking = await Booking.create(data); // Create and return the booking
+    return savedBooking; // Return the saved booking object
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
     return -1;
   }
 };
-
-module.exports = { createUser, findUser, getMenu, saveBooking, getMenuId };
+const findBookingById = async (id) => {
+  try {
+    await mongoose.connect(URL);
+    console.log("MongoDB connected successfully!");
+    const data = await Booking.findById(id);
+    return data;
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    return null;
+  }
+};
+module.exports = {
+  createUser,
+  findUser,
+  getMenu,
+  saveBooking,
+  getMenuId,
+  findBookingById,
+};

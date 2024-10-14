@@ -23,13 +23,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-//  session middleware
+
+// Session middleware configuration
 app.use(
   session({
     secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
+    resave: false, // Only save sessions if they are modified
+    saveUninitialized: false, // Only save sessions when something is stored
+    cookie: { secure: false }, // Set to false if not using HTTPS
   })
 );
 

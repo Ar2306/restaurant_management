@@ -1,26 +1,34 @@
 const express = require("express");
 const router = express.Router();
 const ctrlLocations = require("../controllers/locations");
-const bookingsController = require("../controllers/bookings");
+// const bookingsController = require("../controllers/bookings");
+const {
+  bookTableForm,
+  bookTableSubmit,
+  bookingConfirmation,
+} = require("../controllers/bookings");
 
 // General pages
-router.get("/cart", (req, res)=>{res.render("cart", { title: "Cart" })})
+router.get("/cart", (req, res) => {
+  res.render("cart", { title: "Cart" });
+});
 router.get("/", ctrlLocations.home);
 router.get("/menu", ctrlLocations.menu);
 router.get("/contact", ctrlLocations.contact);
 router.get("/about", ctrlLocations.about);
 router.get("/blog", ctrlLocations.blog);
-router.get("bookTableSubmit", ctrlLocations.bookTableSubmit);
 
 // Booking routes
-router.get("/book-table", (req, res) => {
-  res.render("book-table", { title: "Book a Table" });
-});
+// router.get("/book-table", (req, res) => {
+//   res.render("book-table", { title: "Book a Table" });
+// });
 
-router.post("/book-table-submit", bookingsController.bookTable);
+router.get("/book-table", bookTableForm);
 
-router.get("/booking-confirmation", (req, res) => {
-  res.render("booking-confirmation", { title: "Booking Confirmed" });
-});
+// Handle form submission
+router.post("/book-table-submit", bookTableSubmit);
+
+// Render the booking confirmation
+router.get("/booking-confirmation", bookingConfirmation);
 
 module.exports = router;
