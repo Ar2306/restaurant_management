@@ -37,8 +37,8 @@ app.use(
 // Define routes
 app.use("/", indexRouter);
 app.use("/", AuthRouter);
-app.use("/", cartRouter);
 app.use("/api/cart", cartRouter);
+app.use("/add-to-cart", cartRouter);
 
 // Error handling for 404
 app.use((req, res, next) => {

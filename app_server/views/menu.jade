@@ -46,10 +46,11 @@ block content
                 else
                   p No reviews available.
 
-                
-               form.add-to-cart-form(action="/api/cart/add", method="POST")
-                 input(type="hidden", name="itemId", value=item._id)  // Sends item ID
-                 button(type="submit") Add to Cart
+                form.add-to-cart-form(action="/add-to-cart", method="POST")
+                  input(type="hidden", name="id", value=item._id)
+                  input(type="hidden", name="name", value=item.name) 
+                  input(type="hidden", name="price", value=item.price) 
+                  button(type="submit") Add to Cart
 
   footer
     p © 2024 Restro

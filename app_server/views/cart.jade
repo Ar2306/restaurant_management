@@ -1,40 +1,24 @@
-extends layout
-<<<<<<< HEAD
-  block content
-    h1 Your Cart
- 
-    if !cart || cart.length === 0
-      p Your cart is empty.
-    else
-      table
-=======
+link(rel="stylesheet", href="/stylesheets/cart.css")
+
 block content
   h1 Your Cart
- 
+
   if !cart || cart.length === 0
     p Your cart is empty.
   else
-    table
-      tr
-        th Item
-        th Quantity
-        th Price
-        th Subtotal
+    ul.cart-list
       each item in cart
->>>>>>> 87c5ca6d08abbaa4672dca3de586d61a558e9b84
-        tr
-          th Item
-          th Quantity
-          th Price
-          th Subtotal
-        each item in cart
-          tr
-            td= item.name
-            td= item.quantity
-            td Rs #{item.price}
-            td Rs #{item.price * item.quantity}
+        li.cart-item
+          .cart-item-details
+            h3= item.name
+            p Unit Price: ₹#{item.price}
+          .cart-item-quantity
+            form(method="POST" action=`/cart/update/${item.id}`)
+              input(type="number", name="quantity", value=item.quantity, min="1")
+              button(type="submit") Update
+          .cart-item-price ₹#{item.price * item.quantity}
 
-      h3 Total: Rs #{cart.reduce((total, item) => total + (item.price * item.quantity), 0)}
+    p.total-bill Total: ₹#{cart.reduce((total, item) => total + (item.price * item.quantity), 0)}
 
-      form(action="/checkout", method="POST")
-        button(type="submit") Proceed to Checkout
+    form(action="/cart/checkout", method="POST")
+      button(type="submit") Proceed to Checkout
