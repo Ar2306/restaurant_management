@@ -1,5 +1,5 @@
 extends layout
-
+//- link(rel="stylesheet", href="/stylesheets/menu.css")
 block content
   .menu-page
     header
@@ -46,11 +46,12 @@ block content
                 else
                   p No reviews available.
 
-                form.add-to-cart-form(action="/add-to-cart", method="POST")
-                  input(type="hidden", name="id", value=item._id)
-                  input(type="hidden", name="name", value=item.name) 
-                  input(type="hidden", name="price", value=item.price) 
-                  button(type="submit") Add to Cart
+                
+               form.add-to-cart-form(action="/cart/add", method="POST")
+                 input(type="hidden", name="itemId", value=item._id)  // Sends item ID
+                 button(type="submit") Add to Cart
 
   footer
     p © 2024 Restro
+
+   script(src='/javascripts/app.js')

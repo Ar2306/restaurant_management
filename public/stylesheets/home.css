@@ -208,6 +208,7 @@ header .navbar-brand {
   flex-direction: column;
   cursor: pointer;
   margin-bottom: 20px;
+  z-index: 99;
 }
 
 .hamburger div {

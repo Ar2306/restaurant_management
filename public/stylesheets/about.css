@@ -10,17 +10,20 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #1c1c1e; /* Match the dark theme */
   min-height: 100vh;
-  margin: 0;
+  margin: 40px;
   padding: 0;
 }
 
 /* Full-Width Container Styling */
 .about-container {
+  padding-top: 150px;
   width: 100vw; /* Full viewport width */
+  padding-top: 140px; /* Adjusted to add space for the fixed navbar */
   padding: 40px 20px;
   background-color: #1c1c1e; /* Dark background to match theme */
   border-radius: 0; /* No border radius to avoid corner spaces */
-  box-shadow: none; /* Remove shadows for full coverage */
+  box-shadow: none;
+  z-index: 100; /* Remove shadows for full coverage */
 }
 
 /* Hero Section */
